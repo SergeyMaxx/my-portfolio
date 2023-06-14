@@ -138,7 +138,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 40px 40px 40px 100px;
+  padding: 40px 100px;
   background: var(--page-bg) url("../img/bg.png") center no-repeat;
   color: var(--text-color);
   text-align: center;
@@ -331,6 +331,7 @@ html, body {
 
   .header {
     min-height: unset;
+    padding: 40px;
   }
 
   .header__title {
