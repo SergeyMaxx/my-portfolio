@@ -2,8 +2,11 @@ import React, {useEffect, useState} from 'react'
 import sun from '../icons/sun.svg'
 import moon from '../icons/moon.svg'
 import {Link} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {darkModeToggle} from '../Store/createStore'
 
 const NavBar = () => {
+  const dispatch = useDispatch()
   const [state, setState] = useState(false)
   const [underline, setUnderline] = useState({
     Projects: true,
@@ -19,15 +22,22 @@ const NavBar = () => {
     }
 
     setUnderline(prev => ({
-        ...prev,
-        [target.innerText]: true
+      ...prev,
+      [target.innerText]: true
     }))
   }
 
   const darkModeToggler = () => {
     setState(!state)
     const isDark = document.body.classList.toggle('dark')
-    isDark ? localStorage.setItem('darkMode', 'dark') : localStorage.setItem('darkMode', 'light')
+
+    if (isDark) {
+      localStorage.setItem('darkMode', 'dark')
+      dispatch(darkModeToggle({status: localStorage.getItem('darkMode')}))
+    } else {
+      localStorage.setItem('darkMode', 'light')
+      dispatch(darkModeToggle({status: localStorage.getItem('darkMode')}))
+    }
   }
 
   useEffect(() => {

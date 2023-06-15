@@ -18,14 +18,24 @@ const projects = [
 const projectsSlice = createSlice({
   name: 'projects',
   initialState: {
-    projectsState: projects
+    projectsState: projects,
+    isDarkMode: localStorage.getItem('darkMode') || 'light'
   },
-  reducers:{}
+  reducers: {
+    toggleDarkMode(state, action) {
+      state.isDarkMode = action.payload.status
+    }
+  }
 })
+
+const {toggleDarkMode} = projectsSlice.actions
 
 const {reducer} = projectsSlice
 
 export const getProjects = () => state => state.reducer.projectsState
+export const getDarkMode = () => state => state.reducer.isDarkMode
+export const darkModeToggle = status => toggleDarkMode(status)
+export const changeDarkMode = status => toggleDarkMode(status)
 
 const rootReducer = combineReducers({reducer})
 

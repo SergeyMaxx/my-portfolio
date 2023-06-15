@@ -15,9 +15,9 @@ const Footer = () => {
               <img src={vk} alt="link"/>
             </a>
           </li>
-          <li className="social__item">
+          <li >
             <a href="https://instagram.com" target='_blank' rel='noreferrer'>
-              <img src={instagram} alt="link"/>
+              <img className="social__item" src={instagram} alt="link"/>
             </a>
           </li>
           <li className="social__item">
@@ -30,8 +30,8 @@ const Footer = () => {
               <img src={gitHub} alt="link"/>
             </a>
           </li>
-          <li className="social__item">
-            <a href="https://linkedIn.com" target='_blank' rel='noreferrer'>
+          <li className="social__item bg-image">
+            <a className="bg-image" href="https://linkedIn.com" target='_blank' rel='noreferrer'>
               <img src={linkedIn} alt="link"/>
             </a>
           </li>

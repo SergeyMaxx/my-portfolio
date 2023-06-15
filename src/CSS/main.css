@@ -16,7 +16,6 @@
   /*=============< light mode >=============*/
   --page-bg: var(--white);
   --text-color: var(--black);
-  
 }
 
 .dark {
@@ -218,6 +217,13 @@ html, body {
   background: var(--page-bg);
   box-shadow: var(--shadow);
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.project:hover {
+  transform: scale(0.95);
+  box-shadow: -3px -3px 5px 2px #603839,  3px 3px 5px 2px #da8283;
 }
 
 .project__title {
@@ -242,6 +248,14 @@ html, body {
   column-gap: 30px;
   align-items: center;
   margin-bottom: 27px;
+}
+
+.social__item {
+  transition: all 0.2s;
+}
+
+.social__item:hover {
+  transform: scale(1.2);
 }
 
 .copyright {

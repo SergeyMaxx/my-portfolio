@@ -1,12 +1,13 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import gitHubBlack from '../../icons/gitHub-black.svg'
 import gitHub from '../../icons/gitHub.svg'
 import {useSelector} from 'react-redux'
-import {getProjects} from '../../Store/createStore'
+import {getDarkMode, getProjects} from '../../Store/createStore'
 import {useParams} from 'react-router-dom'
 
 const ProjectPage = () => {
   const projects = useSelector(getProjects())
+  const darkMode = useSelector(getDarkMode())
   const {projectId} = useParams()
 
   useEffect(() => {
@@ -30,8 +31,10 @@ const ProjectPage = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img className="git-black" src={gitHubBlack} alt="gitHub"/>
-            <img className="git none" src={gitHub} alt="gitHub"/>
+            {darkMode === 'dark'
+              ? <img className="git " src={gitHub} alt="gitHub"/>
+              : <img className="git-black " src={gitHubBlack} alt="gitHub"/>
+            }
             GitHub repo
           </a>
         </div>
