@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react'
 import sun from '../icons/sun.svg'
 import moon from '../icons/moon.svg'
 import {Link} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
-import {darkModeToggle} from '../Store/createStore'
+import {useDispatch, useSelector} from 'react-redux'
+import {darkModeToggle, getDarkMode} from '../Store/createStore'
 
 const NavBar = () => {
   const dispatch = useDispatch()
-  const [state, setState] = useState(false)
+  const darkMode = useSelector(getDarkMode())
+  const [state, setState] = useState(localStorage.getItem('darkMode') === 'dark')
   const [underline, setUnderline] = useState({
     Projects: true,
     Skills: false,
@@ -28,23 +29,19 @@ const NavBar = () => {
   }
 
   const darkModeToggler = () => {
-    setState(!state)
-    const isDark = document.body.classList.toggle('dark')
+    !state
+      ? localStorage.setItem('darkMode', 'dark')
+      : localStorage.setItem('darkMode', 'light')
 
-    if (isDark) {
-      localStorage.setItem('darkMode', 'dark')
-      dispatch(darkModeToggle({status: localStorage.getItem('darkMode')}))
-    } else {
-      localStorage.setItem('darkMode', 'light')
-      dispatch(darkModeToggle({status: localStorage.getItem('darkMode')}))
-    }
+    dispatch(darkModeToggle({status: localStorage.getItem('darkMode')}))
+    setState(!state)
   }
 
   useEffect(() => {
-    if (matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark')
-    }
-  }, [])
+    darkMode === 'dark'
+      ? document.body.classList.add('dark')
+      : document.body.classList.remove('dark')
+  }, [darkMode])
 
   return (
     <nav className="nav">
