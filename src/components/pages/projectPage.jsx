@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import gitHubBlack from '../../icons/gitHub-black.svg'
 import gitHub from '../../icons/gitHub.svg'
 import {useSelector} from 'react-redux'
@@ -9,7 +9,11 @@ const ProjectPage = () => {
   const projects = useSelector(getProjects())
   const {projectId} = useParams()
 
-  const getById = projects.find(p => p.id === projectId)
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(getById))
+  }, [projects])
+
+  const getById = projects.find(p => p.id === projectId) || JSON.parse(localStorage.getItem('projects'))
 
   return (
     <main className="section">
@@ -23,8 +27,8 @@ const ProjectPage = () => {
           <a
             className="btn-outline"
             href="https://github.com/SergeyMaxx"
-            target='_blank'
-            rel='noreferrer'
+            target="_blank"
+            rel="noreferrer"
           >
             <img className="git-black" src={gitHubBlack} alt="gitHub"/>
             <img className="git none" src={gitHub} alt="gitHub"/>

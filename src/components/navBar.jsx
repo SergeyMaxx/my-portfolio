@@ -12,6 +12,8 @@ const NavBar = () => {
   })
 
   const getUnderline = ({target}) => {
+    localStorage.removeItem('projects')
+
     for (let key in underline) {
       underline[key] = false
     }
