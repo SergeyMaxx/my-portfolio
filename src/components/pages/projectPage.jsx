@@ -14,20 +14,23 @@ const ProjectPage = () => {
     localStorage.setItem('projects', JSON.stringify(getById))
   }, [projects])
 
-  const getById = projects.find(p => p.id === projectId) || JSON.parse(localStorage.getItem('projects'))
+  const getById = projects.find(p => p.id === projectId) ||
+    JSON.parse(localStorage.getItem('projects'))
 
   return (
     <main className="section">
       <div className="container">
         <div className="project-details">
           <h1 className="title-1">{getById.title}</h1>
-          <img className="project-details__img" src={getById.img} alt="project-img"/>
+          <a href={getById.projectLink} target='_blank'>
+            <img className="project-details__img" src={getById.imgBig} alt="project-img"/>
+          </a>
           <p className="project-details__desc">
-            Skills: React, Redux, Node.js, MongoDB
+            {getById.description}
           </p>
           <a
             className="btn-outline"
-            href="https://github.com/SergeyMaxx"
+            href={getById.gitHubLink}
             target="_blank"
             rel="noreferrer"
           >

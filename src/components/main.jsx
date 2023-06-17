@@ -18,7 +18,7 @@ const Main = () => {
               onClick={() => history.push(`/${p.id}`)}
               key={p.id}
             >
-              <img src={p.img} alt='project'/>
+              <img className="project-img" src={p.img} alt='project'/>
               <h3 className="project__title">{p.title}</h3>
             </li>
           ))}
