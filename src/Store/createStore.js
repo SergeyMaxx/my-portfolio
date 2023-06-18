@@ -1,13 +1,13 @@
 import {combineReducers, configureStore, createSlice} from '@reduxjs/toolkit'
 import O1 from '../img/notepad.png'
 import O2 from '../img/todos.png'
-import O3 from '../img/03.png'
+import O3 from '../img/fast-company.png'
 import O4 from '../img/04.png'
 import O5 from '../img/05.png'
 import O6 from '../img/06.png'
 import big_O1 from '../img/notepad-big.png'
 import big_O2 from '../img/todos-big.png'
-import big_O3 from '../img/03.png'
+import big_O3 from '../img/fast-company-big.png'
 import big_O4 from '../img/04.png'
 import big_O5 from '../img/05.png'
 import big_O6 from '../img/06.png'
@@ -20,7 +20,7 @@ const projects = [
     title: 'Full stack SPA "Notepad"',
     description: `Frontend: JavaScript, React, Redux Toolkit, Axios, Lodash ${<br/>}
                   Backend: Node.js, Express, MongoDB`,
-    projectLink: 'https://notepad-2-fd8a3.firebaseapp.com/',
+    projectLink: 'https://notepad-2-fd8a3.firebaseapp.com',
     gitHubLink: 'https://github.com/SergeyMaxx/notepad-2.git'
   },
   {
@@ -29,17 +29,17 @@ const projects = [
     imgBig: big_O2,
     title: 'Todos application',
     description: 'TypeScript, React',
-    projectLink: 'https://todo-ts-1c3bb.web.app/',
+    projectLink: 'https://todo-ts-1c3bb.web.app',
     gitHubLink: 'https://github.com/SergeyMaxx/todos-ts.git'
   },
   {
     id: Math.random().toString(36).slice(2),
     img: O3,
     imgBig: big_O3,
-    title: 'Video portal',
-    description: '',
-    projectLink: '',
-    gitHubLink: ''
+    title: 'Social network for quick meetings',
+    description: 'JavaScript, React, Lodash',
+    projectLink: 'https://fast-company-5008a.web.app/',
+    gitHubLink: 'https://github.com/SergeyMaxx/fast-company_react.git'
   },
   {
     id: Math.random().toString(36).slice(2),

@@ -116,11 +116,11 @@ html, body {
 
 .nav-list__link {
   color: var(--white);
-  transition: opacity 0.2s;
+  transition: text-shadow 0.3s;
 }
 
 .nav-list__link:hover {
-  opacity: 0.8;
+  text-shadow: 0 0 10px #fda3a4;
 }
 
 .nav-list__link_active::after {
