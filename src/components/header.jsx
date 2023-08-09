@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = () => {
-  const URL_RESUME = 'https://drive.google.com/file/d/1LgHccva6hmb72h4pDIpOR94B6agYOT8a/view?usp=drive_link'
+  const URL_RESUME = 'https://drive.google.com/file/d/12z4DzpnXjlks-hDA9DTvxCkFZm11C2ys/view?usp=sharing'
 
   return (
     <header className="header">
